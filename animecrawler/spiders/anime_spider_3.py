@@ -4,7 +4,7 @@ from animecrawler.parser.anime_item_parser import AnimeItemParser
 class AnimesSpider3(scrapy.Spider):
     name = 'animes'
     anime_planet_url = 'https://www.anime-planet.com/anime/all'
-    startAt = 0
+    start_at = 0
 
     def start_requests(self):
         yield scrapy.Request(url=self.anime_planet_url, callback=self.get_urls)
@@ -13,8 +13,8 @@ class AnimesSpider3(scrapy.Spider):
         pages = (max(list(map(lambda str: int(str.replace("?page=", '')),
                               response.css('div.pagination.aligncenter li a::attr(href)').getall()))))
         urls = []
-        self.startAt = (pages//5)*2
-        for i in range(self.startAt, (pages // 5)*3):
+        self.start_at = (pages // 5) * 2
+        for i in range(self.start_at, (pages // 5) * 3):
             urls.append(self.anime_planet_url + '?page=' + str(i))
 
         for url in urls:
