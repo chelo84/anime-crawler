@@ -8,7 +8,14 @@
 import scrapy
 
 
-class AnimecrawlerItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class AnimeItem(scrapy.Item):
+    url = scrapy.Field()
+    name = scrapy.Field()
+    aka = scrapy.Field()
+    description = scrapy.Field()
+    type = scrapy.Field()
+    studio = scrapy.Field()
+    rating = scrapy.Field(serializer=float)
+    rating_count = scrapy.Field(serializer=int)
+    tags = scrapy.Field()
+    date = scrapy.Field()
