@@ -14,6 +14,4 @@ class AnimecrawlerPipeline(object):
 
     def process_item(self, item, spider):
         self.collection.insert(dict(item))
-        log.msg("Anime " + item['name'] + " added to the database",
-                level=log.DEBUG, spider=spider)
         return item

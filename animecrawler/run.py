@@ -8,8 +8,8 @@ from scrapy.utils.project import get_project_settings
 
 process = CrawlerProcess(get_project_settings())
 process.crawl(AnimesSpider1)
-process.crawl(AnimesSpider2)
-process.crawl(AnimesSpider3)
-process.crawl(AnimesSpider4)
-process.crawl(AnimesSpider5)
+# process.crawl(AnimesSpider2)
+# process.crawl(AnimesSpider3)
+# process.crawl(AnimesSpider4)
+# process.crawl(AnimesSpider5)
 process.start()

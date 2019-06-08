@@ -1,8 +1,10 @@
 import scrapy
 from animecrawler.parser.anime_item_parser import AnimeItemParser
+from animecrawler.parser.anime_item_parser import ExtractUtils
+
 
 class AnimesSpider3(scrapy.Spider):
-    name = 'animes'
+    name = 'animes_3'
     anime_planet_url = 'https://www.anime-planet.com/anime/all'
     start_at = 0
 
@@ -22,5 +24,5 @@ class AnimesSpider3(scrapy.Spider):
 
     def parse(self, response):
         for href in response.css('ul.cardDeck.cardGrid a::attr(href)').extract():
-            url = 'https://www.anime-planet.com' + href
+            url = '{hostname}{path}'.format(hostname=ExtractUtils.ANIME_PLANET_URL, path=href)
             yield scrapy.Request(url, AnimeItemParser.parse_anime)

@@ -1,6 +1,8 @@
 
 class ExtractUtils:
 
+    ANIME_PLANET_URL = 'https://www.anime-planet.com'
+
     @staticmethod
     def extract_default_blank(response, query):
         return response.css(query).get(default='').strip()

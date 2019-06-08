@@ -19,3 +19,5 @@ class AnimeItem(scrapy.Item):
     rating_count = scrapy.Field(serializer=int)
     tags = scrapy.Field()
     date = scrapy.Field()
+    image = scrapy.Field()
+    characters = scrapy.Field()
