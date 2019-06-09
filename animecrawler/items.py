@@ -24,6 +24,7 @@ class AnimeItem(scrapy.Item):
 
 class MALItem(scrapy.Item):
     url = scrapy.Field()
+    image = scrapy.Field()
     name = scrapy.Field()
     type = scrapy.Field()
     episodes = scrapy.Field()
