@@ -3,13 +3,13 @@ from animecrawler.parser.anime_item_parser import AnimeItemParser
 from animecrawler.parser.anime_item_parser import ExtractUtils
 
 
-class AnimesSpider2(scrapy.Spider):
-    name = 'animes_2'
-    anime_planet_url = 'https://www.anime-planet.com/anime/all'
+class AnimePlanetSpider(scrapy.Spider):
+    name = 'anime_planet_2'
+    all_anime_url = '{hostname}{path}'.format(hostname=ExtractUtils.ANIME_PLANET_URL, path='/anime/all')
     start_at = 0
 
     def start_requests(self):
-        yield scrapy.Request(url=self.anime_planet_url, callback=self.get_urls)
+        yield scrapy.Request(url=ExtractUtils.ANIME_PLANET_URL+'/anime/all', callback=self.get_urls)
 
     def get_urls(self, response):
         pages = (max(list(map(lambda str: int(str.replace("?page=", '')),
@@ -17,7 +17,7 @@ class AnimesSpider2(scrapy.Spider):
         urls = []
         self.start_at = pages // 5
         for i in range(self.start_at, (pages // 5) * 2):
-            urls.append(self.anime_planet_url + '?page=' + str(i))
+            urls.append(ExtractUtils.ANIME_PLANET_URL+ '?page=' + str(i))
 
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)

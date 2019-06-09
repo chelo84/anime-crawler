@@ -2,6 +2,7 @@
 class ExtractUtils:
 
     ANIME_PLANET_URL = 'https://www.anime-planet.com'
+    MAL_URL = 'https://myanimelist.net'
 
     @staticmethod
     def extract_default_blank(response, query):
