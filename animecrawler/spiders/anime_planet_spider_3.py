@@ -1,6 +1,6 @@
 import scrapy
 from animecrawler.parser.anime_item_parser import AnimeItemParser
-from animecrawler.parser.anime_item_parser import ExtractUtils
+from animecrawler.utils.extract_utils import ExtractUtils
 
 
 class AnimePlanetSpider(scrapy.Spider):

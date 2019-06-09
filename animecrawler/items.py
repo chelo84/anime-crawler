@@ -25,7 +25,6 @@ class AnimeItem(scrapy.Item):
 class MALItem(scrapy.Item):
     url = scrapy.Field()
     name = scrapy.Field()
-    japanese_name = scrapy.Field()
     type = scrapy.Field()
     episodes = scrapy.Field()
     status = scrapy.Field()
