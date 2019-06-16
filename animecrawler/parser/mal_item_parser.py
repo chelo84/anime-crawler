@@ -80,7 +80,7 @@ class MALItemParser:
             for i in range(1, number_of_actors+1):
                 actor = {}
                 full_name = MALItemParser.__reduce_str(table_response.xpath('//table/tr/td[@align="right"]//tr[{i}]//a/text()'.format(i=i)).getall())
-                name = MALItemParser.__get_first_and_last_names(full_name)
+                name = MALItemParser.__get_first_and_last_names(full_name.split(','))
                 actor['first_name'] = name['first']
                 actor['last_name'] = name['last']
                 actor['language'] = table_response.xpath('//table/tr/td[@align="right"]//tr[{i}]//small/text()'.format(i=i)).get(default='')
